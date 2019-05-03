@@ -39,7 +39,7 @@
      
 
       <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown *ngIf="loggedIn">
+      <li class="nav-item dropdown" dropdown><!--*ngIf="loggedIn" to be able to see the profile-->
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
