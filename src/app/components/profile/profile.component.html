@@ -1,0 +1,27 @@
+<html data-theme="light">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<body>
+  <div class="profile-container">
+    <div class="profile-menu">
+      <div class="image-container">
+        <img src="https://pixeltime.ro/profile.jpg" alt="">
+      </div>
+      <ul>
+        <li>My Reservations</li>
+        <li>Recipes</li>
+        <li>Coupon</li>
+        <a [routerLink]="[{ outlets: { outlet1: ['profile-content']} }]"><li class="active">Personal Info</li></a>
+        <a routerLink="#" (click)="logout($event)"><li>Logout</li></a>
+         <!-- dark Mode -->
+         <p class="text-dark">Dark / Light Mode</p>
+         <input type="checkbox" id="switch" class="dark-mode" name="theme" /><label for="switch">Toggle</label>
+         <!-- End -->
+      </ul>
+    </div>
+
+    <!-- Router-outlet -->
+    
+    <!-- Router-outlet -->
+  </div>
+</body>
+</html>

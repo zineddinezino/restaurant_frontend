@@ -1,0 +1,70 @@
+<!-- <div class="container">
+<div class="jumbotron text-center" [style.background-color]="isHover ? 'grey': 'white'">
+    <h1 class="display-4">Welcome To Our Restaurant!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button" (mouseenter)="mouseEnter()"  (mouseleave) ="mouseLeave()">See Menus</a> 
+  </div>
+  </div> -->
+  <div class="container text-center">
+  <h1 class="homeTitle">Are You Hungry?</h1>
+  <a mdbBtn class="btn btn-primary btn-lg" id="btn-1"  data-toggle="modal" data-target="#basicExample" mdbWavesEffect (click)="frame.show()" mdbWavesEffect role="button" (mouseenter)="mouseEnter()"  (mouseleave) ="mouseLeave()">Book Now</a>
+  <br><br><br><br>
+  <h4 class="workTime">Today is: {{elements.name}}</h4>
+  <h4 class="workTime">Working Time: From 11:00 AM To 23:00 PM</h4>  
+</div>
+
+  <!-- Modal -->
+  <!-- <button type="button" mdbBtn color="blue" rounded="true" data-toggle="modal" data-target="#basicExample" class="btn-book-center"
+  (click)="frame.show()" mdbWavesEffect>Are You Hungry</button> -->
+  <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning modal-dialog-centered" role="document">
+    <!--Content-->
+    <div class="modal-content">
+<!--Header-->
+<div class="modal-header text-center">
+  <h4 class="modal-title white-text w-100 font-weight-bold py-2">Booking</h4>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+    <span aria-hidden="true" class="white-text">&times;</span>
+  </button>
+</div>
+
+<!--Body-->
+<div class="modal-body">
+  <div class="md-form">
+    <!-- <i class="fas fa-envelope prefix grey-text"></i> -->
+    <mdb-icon fas icon="expand"></mdb-icon>
+    <input type="email" id="form2" class="form-control" mdbInput [formControl]="modalFormSubscriptionSize" required #size [class.is-invalid]="!isValid && size.value==0">
+    <label data-error="wrong" data-success="right" for="form2">Table Size</label>
+  </div>
+
+  <div class="md-form">
+    <!-- <i class="fas fa-envelope prefix grey-text"></i> -->
+    <mdb-icon fas icon="calendar-alt"></mdb-icon>
+    <input type="date" id="form3" class="form-control" mdbInput [formControl]="modalFormSubscriptionDate" required #dateRes>
+    <label data-error="wrong" data-success="right" for="form3">Date</label>
+  </div>
+
+  <div class="md-form">
+    <!-- <i class="fas fa-envelope prefix grey-text"></i> -->
+    <mdb-icon far icon="clock"></mdb-icon>
+    <input type="time" id="form1" class="form-control" mdbInput [formControl]="modalFormSubscriptionTime" required #time>
+    <label data-error="wrong" data-success="right" for="form3">Time</label>
+  </div>
+</div>
+
+<!--Footer-->
+<div class="modal-footer justify-content-center">
+  <a type="button" mdbBtn color="warning" outline="true" class="waves-effect" mdbWavesEffect (click)="[addReservation(size.value,dateRes.value,time.value),frame.hide()]">Book
+    <!-- <i class="far fa-paper-plane ml-1"></i> -->
+    <span style="visibility: hidden;">Hi!M</span><mdb-icon fas icon="utensils"></mdb-icon>
+  </a>
+</div>
+</div>
+<!--/.Content-->
+</div>
+</div>
+   
+

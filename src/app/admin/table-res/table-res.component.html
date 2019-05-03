@@ -1,0 +1,18 @@
+<div class="container">
+<button mdbBtn type="button" class="shBtn" gradient="blue" rounded="true" mdbWavesEffect (click)="ShowTab()">Show List</button>
+<div *ngIf="display">
+  <table mdbTable hover="true">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of elements">
+        <th scope="row">{{el.id}}</th>
+        <td>{{el.capacity}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

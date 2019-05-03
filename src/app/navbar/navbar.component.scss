@@ -1,0 +1,21 @@
+.navbar-brand
+{
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.navbar-brand:hover
+{
+    //color : grey;
+    background: linear-gradient(to right,#ff8a00,#da1b60);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo
+{
+  font-size: 150%;
+  padding-right: 2px;
+  color: #ff8a00;
+}

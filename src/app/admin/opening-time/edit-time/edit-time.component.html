@@ -1,0 +1,16 @@
+<h4 class="display-4">Edit Time</h4>
+<hr>
+<form #form="ngForm" autocomplete="off">
+  <div class="form-group">
+    <label>Start Time</label>
+    <input type="time" name="start" #start="ngModel" [(ngModel)]="form.start" class="form-control" #start>
+  </div>
+  <div class="form-group">
+    <label>End Time</label>
+    <input type="time" name="capacity" #capacity="ngModel" [(ngModel)]="form.capacity" class="form-control" #end>
+  </div>
+  <div class="form-group">
+      <button type="button" class="btn btn-dark" (click)="edit(start.value,end.value)"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fas fa-times"></i> Close</button>
+    </div>
+</form>

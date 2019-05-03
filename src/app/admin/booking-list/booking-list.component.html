@@ -1,0 +1,63 @@
+<!-- <div class="cont">
+    <button mdbBtn type="button" class="shBtn" gradient="blue" rounded="true" mdbWavesEffect (click)="ShowTab()">Show List</button>
+    <div *ngIf="display">
+      <table mdbTable hover="true">
+        <thead>
+          <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of elements">
+            <th scope="row">{{el.id}}</th>
+            <td>{{el.name}}</td>
+            <td>{{el.state}}</td>
+            <td>{{el.dateRes}}</td>
+            <td>{{el.id_table}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div> -->
+
+    <html data-theme="light">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<body>
+  <div class="profile-container">
+    <div class="profile-content">
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <th>id</th>
+          <th>Date</th>
+          <th>State</th>
+          <th>user id</th>
+          <th>
+            <a class="btn btn-sm btn-success text-white" (click)="AddOrEditOrderItem(null,service.formData.OrderID)"><i class="fa fa-plus"></i> Add Item</a>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngIf="elements.length==0">
+            <td class="font-italic text-center" colspan="5">
+              There is no reservation.
+            </td>
+          </tr>
+    
+          <tr *ngFor="let ele of elements;let i=index;">
+            <td>{{ele.id}}</td>
+            <td>{{ele.dateRes}}</td>
+            <td>{{ele.state}}</td>
+            <td>{{ele.id_user}}</td>
+            <td>
+              <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(ele.id)"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+      </div>
+    
+    </div>
+
+</div>
+</body>
+</html>

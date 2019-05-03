@@ -1,0 +1,13 @@
+<h4 class="display-4">Add New Table</h4>
+<hr>
+<form #form="ngForm" autocomplete="off">
+  <div class="form-group">
+    <label>Capacity</label>
+    <input name="capacity" #capacity="ngModel" [(ngModel)]="form.capacity" class="form-control" #capa>
+  </div>
+  <div class="form-group">
+      <button type="button" class="btn btn-dark" (click)="add(capa.value)"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fas fa-times"></i> Close</button>
+    </div>
+</form>
+<!-- 1.16.26 -->

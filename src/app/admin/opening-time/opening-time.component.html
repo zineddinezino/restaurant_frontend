@@ -1,0 +1,44 @@
+<html data-theme="light">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<body>
+  <div class="profile-container">
+    <div class="profile-content">
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>
+          </th>
+          <th>
+            <a (click)="reset()"><i class="fas fa-redo-alt"></i></a>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngIf="conn.elements.length==0">
+            <td class="font-italic text-center" colspan="5">
+              There is no schedule.
+            </td>
+          </tr>
+    
+          <tr *ngFor="let ele of conn.elements;let i=index;">
+            <td>{{ele.id}}</td>
+            <td>{{ele.name}}</td>
+            <td>{{ele.StartTime}}</td>
+            <td>{{ele.EndTime}}</td>
+            <td>
+                <a class="btn btn-sm btn-info text-white" (click)="Edit(ele.id)"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(ele.id)"><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+      </div>
+    
+    </div>
+
+</div>
+</body>
+</html>

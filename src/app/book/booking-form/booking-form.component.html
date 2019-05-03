@@ -1,0 +1,35 @@
+<h4 class="display-4">Book a Table</h4>
+<hr>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <div class="form-group">
+    <label>Person number:</label>
+    <select name="size" #size="ngModel" [(ngModel)]="formData.size" class="form-control">
+      <option value="0">-Select-</option>
+      <option *ngFor="let item of tableService.elements" value="{{item.capacity}}" #size>{{item.capacity}}</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Date</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">D</div>
+        </div>
+        <input type="date" name="date" min="{{limitDate}}" #date="ngModel" [(ngModel)]="formData.date" class="form-control" #date>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Time</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">T</div>
+        </div>
+        <input type="time" name="time" min="{{limitTime}}" #time="ngModel" [(ngModel)]="formData.time" class="form-control" #time>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+      <button type="submit" class="btn btn-dark" ><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fas fa-times"></i> Close</button>
+    </div>
+</form>

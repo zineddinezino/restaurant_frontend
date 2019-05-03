@@ -1,0 +1,47 @@
+.container
+{
+    margin-top: 10%;
+    margin-left: 8%;
+    position: relative;
+}
+
+h1
+{
+font-family: Quicksand;
+color: white;
+font-weight: bold;
+//text-align: left;
+font-size: 75px;
+//letter-spacing: 0.4em;
+
+}
+h1:hover{
+  background: linear-gradient(to right,#ff8a00,#da1b60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+// .jumbotron
+// {
+//     background:linear-gradient(rgba(20,20,20, .5), rgba(20,20,20, .5)),url("/assets/2.jpg");
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
+
+#btn-1
+{
+  text-transform: initial;
+  background-image: linear-gradient(to left,#ff8a00,#da1b60);
+ // margin-left: 20%;
+  //margin-top: 10%;
+ // float: left;
+}
+
+.workTime
+{
+font-family: Quicksand;
+color: white;
+font-weight: bold;
+font-size: 30px;
+}
