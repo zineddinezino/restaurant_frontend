@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'table', component: TableComponent },
   { path: 'login', component: LoginComponent, canActivate: [BeforeLoginService] },
   { path: 'signup', component: SignupComponent, canActivate: [BeforeLoginService] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AfterLoginService], 
+  { path: 'profile', component: ProfileComponent, //canActivate: [AfterLoginService], to be able to reach this page 
   children : [
     { path: 'profile-content' , component: ProfileContentComponent , outlet: 'outlet1' }
   ] },
