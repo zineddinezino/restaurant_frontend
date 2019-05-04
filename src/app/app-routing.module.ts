@@ -22,6 +22,11 @@ import { TableResComponent } from './admin/table-res/table-res.component';
 import { TableComponent } from './admin/table/table.component';
 import { OpeningTimeComponent } from './admin/opening-time/opening-time.component';
 
+
+// todo center the content of home page
+// the login page try to change it make it vertically desig
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -30,12 +35,12 @@ const routes: Routes = [
   { path: 'table', component: TableComponent },
   { path: 'login', component: LoginComponent, canActivate: [BeforeLoginService] },
   { path: 'signup', component: SignupComponent, canActivate: [BeforeLoginService] },
-  { path: 'profile', component: ProfileComponent, //canActivate: [AfterLoginService], to be able to reach this page 
+  { path: 'profile', component: ProfileComponent, /*//canActivate: [AfterLoginService], to be able to reach this page */
   children : [
     { path: 'profile-content' , component: ProfileContentComponent , outlet: 'outlet1' }
   ] },
-  { path: 'profile-content' , component: ProfileContentComponent},
-  { path: 'TableRes' , component : TableResComponent,canActivate : [AfterLoginService]},
+ /* { path: 'profile-content' , component: ProfileContentComponent},*/
+  { path: 'TableRes' , component : TableResComponent, canActivate : [AfterLoginService]},
   { path: 'menu', component: MenuComponent},
   { path: 'feature', component: FeatureComponent},
   { path: 'bookList', component: BookingListComponent},
