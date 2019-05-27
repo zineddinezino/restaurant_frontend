@@ -1,35 +1,61 @@
-<h4 class="display-4">Book a Table</h4>
-<hr>
-<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <div class="form-group">
-    <label>Person number:</label>
-    <select name="size" #size="ngModel" [(ngModel)]="formData.size" class="form-control">
-      <option value="0">-Select-</option>
-      <option *ngFor="let item of tableService.elements" value="{{item.capacity}}" #size>{{item.capacity}}</option>
-    </select>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label>Date</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">D</div>
+<!-- <h4 class="display-4">Book a Table</h4>
+<hr> -->
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form #form="ngForm" [formGroup]="firstFormGroup" (submit)="onSubmit(form)"> 
+        <ng-template matStepLabel>Book a Table</ng-template>
+        <div style="visibility: hidden;">Hi!M</div>
+        <!-- <mat-form-field>
+          <input matInput placeholder="Number of persons" formControlName="firstCtrl" required>
+        </mat-form-field> -->
+        <mat-form-field>
+          <mat-label>Number of Person</mat-label>
+          <mat-select name="size" #size="ngModel" [(ngModel)]="formData.size" > 
+            <mat-option required *ngFor="let item of tableService.elements" value="{{item.capacity}}" #size>{{item.capacity}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="firstCtrl" #date required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <span style="visibility: hidden;">Hi!M</span>
+          <mat-form-field>
+            <input matInput type="time"  formControlName="firstCtrl" #time required>
+          </mat-form-field>
+        
         </div>
-        <input type="date" name="date" min="{{limitDate}}" #date="ngModel" [(ngModel)]="formData.date" class="form-control" #date>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Time</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">T</div>
+        <div>
+          <!-- <div *ngIF="isEmpty"></div> -->
+          <button mat-button (click)="checkTab(size.value,date.value,time.value)">Check Table</button>
+          <button mat-button matStepperNext [disabled]="isEmpty">Next</button>
         </div>
-        <input type="time" name="time" min="{{limitTime}}" #time="ngModel" [(ngModel)]="formData.time" class="form-control" #time>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill Payment Information</ng-template>
+        <div style="visibility: hidden;">Hi!M</div>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="ForDisable()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div style="visibility: hidden;">Hi!M</div>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-    </div>
-  </div>
-  <div class="form-group">
-      <button type="submit" class="btn btn-dark" ><i class="fa fa-database"></i> Submit</button>
-      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fas fa-times"></i> Close</button>
-    </div>
-</form>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <button type="submit" class="btn btn-blue" [disabled]="!isAvailable"><i class="fa fa-database"></i> Submit</button>
+  <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fas fa-times"></i> Close</button>
