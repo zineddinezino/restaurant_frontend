@@ -20,4 +20,8 @@ export class BookService {
     {'id_user' :id_user, 'size' :size,'period' :period},this.httpOptions
     );
   }
+  checkTable(size,period)
+  {
+    return this.http.get('http://localhost:8000/booking/check/'+size+'/'+period);
+  }
 }
