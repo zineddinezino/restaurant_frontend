@@ -53,10 +53,10 @@ export class BookingFormComponent implements OnInit {
     this.conn.get().then(res => this.tableService.elements = res);
 
   }
-
+// اظن اني هكذا نجبدهم بصح يخصني نربطهم مع الخانة 
   get email() { return this.firstFormGroup.get('email'); }
   get password() { return this.secondFormGroup.get('password'); }
-
+// here i was using ngForm that's why this onSubmit method is here but now i have to use FormGroup because of the Stepper
   onSubmit(form : NgForm)
   {
     
