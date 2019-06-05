@@ -2,48 +2,57 @@
 <hr> -->
   <mat-horizontal-stepper [linear]="true" #stepper>
     <mat-step [stepControl]="firstFormGroup">
-      <form #form="ngForm" [formGroup]="firstFormGroup" (submit)="onSubmit(form)"> 
+        <!-- #form="ngForm"  (submit)="onSubmit(form)" -->
+      <form [formGroup]="firstFormGroup"> 
         <ng-template matStepLabel>Book a Table</ng-template>
         <div style="visibility: hidden;">Hi!M</div>
         <!-- <mat-form-field>
           <input matInput placeholder="Number of persons" formControlName="firstCtrl" required>
         </mat-form-field> -->
-        <mat-form-field>
-          <mat-label>Number of Person</mat-label>
-          <mat-select name="size" #size="ngModel" [(ngModel)]="formData.size" > 
-            <mat-option required *ngFor="let item of tableService.elements" value="{{item.capacity}}" #size>{{item.capacity}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        
+              <mat-form-field>
+                  <mat-label>Number of Person</mat-label>
+                  <mat-select  formControlName="firstCtrl" > 
+                    <mat-option required *ngFor="let item of tableService.elements" value="{{item.capacity}}" >{{item.capacity}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+         
         <div>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="firstCtrl" #date required>
+            <input matInput [matDatepicker]="picker" min="{{limitDate}}" placeholder="Choose a date"    formControlName="firstCtrl" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <span style="visibility: hidden;">Hi!M</span>
-          <mat-form-field>
-            <input matInput type="time"  formControlName="firstCtrl" #time required>
-          </mat-form-field>
-        
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput type="time" min="today.StartTime" max="today.EndTime"    formControlName="firstCtrl" required>
+              </mat-form-field>
         </div>
         <div>
           <!-- <div *ngIF="isEmpty"></div> -->
-          <button mat-button (click)="checkTab(size.value,date.value,time.value)">Check Table</button>
-          <button mat-button matStepperNext [disabled]="isEmpty">Next</button>
+          <button  mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill Payment Information</ng-template>
+        <ng-template matStepLabel>Guidance</ng-template>
         <div style="visibility: hidden;">Hi!M</div>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
+        <div>
+          <h5>Hey!</h5>
+          <p>
+            welcome your reservation is under waiting , you can go to the menu and choose your food and complete the payment,
+            or the process can be delayed until you reach the restaurant.
+            have a good one.
+          </p>
+        </div>
+        
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext (click)="ForDisable()">Next</button>
+          <button mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
@@ -57,5 +66,5 @@
       </div>
     </mat-step>
   </mat-horizontal-stepper>
-  <button type="submit" class="btn btn-blue" [disabled]="!isAvailable"><i class="fa fa-database"></i> Submit</button>
+  <button  type="submit" class="btn btn-blue" ><i class="fa fa-database"></i> Submit</button>
   <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fas fa-times"></i> Close</button>
